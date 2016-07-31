@@ -1,4 +1,5 @@
 FROM alpine:3.4
+MAINTAINER gavin zhou <gavin.zhou@gmail.com>
 
 ENV INFLUXDB_VERSION 1.0.0-beta3
 RUN apk add --no-cache --virtual .build-deps wget gnupg tar ca-certificates make gcc musl-dev curl && \
