@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -n "${PRE_CREATE_DB}" ]; then
-  exec influxd -config=/influxdb/etc/influxdb.conf &
+  exec influxd -config=/etc/influxdb/influxdb.conf &
   _PID=$!
   arr=$(echo ${PRE_CREATE_DB} | tr ";" "\n")
 

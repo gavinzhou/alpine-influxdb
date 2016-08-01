@@ -19,12 +19,12 @@ RUN buildDeps="wget gnupg tar ca-certificates make gcc musl-dev" && \
     cp -a /usr/src/influxdb-*/* /usr/bin/ && \
     rm -rf *.tar.gz* /usr/src /root/.gnupg /dumb-init-master && \
     apk del --purge $buildDeps
-COPY config.docker/influxdb.conf /influxdb/etc/influxdb.conf
+COPY config.docker/influxdb.conf /etc/influxdb/influxdb.conf
 
 EXPOSE 8083 8086
 
-VOLUME /influxdb
+VOLUME /var/lib/influxdb
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ["influxd", "-config=/influxdb/etc/influxdb.conf"]
+CMD ["influxd", "-config=/etc/influxdb/influxdb.conf"]
