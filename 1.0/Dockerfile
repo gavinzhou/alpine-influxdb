@@ -9,9 +9,7 @@ RUN buildDeps="wget gnupg tar ca-certificates make gcc musl-dev" && \
         --recv-keys 05CE15085FC09D18E99EFB22684A14CF2582E0C5 && \
     curl -sSL https://github.com/Yelp/dumb-init/archive/master.tar.gz | tar -xz && \
     cd dumb-init-master && gcc -std=gnu99 -s -Wall -Werror -O3 -o /sbin/dumb-init /dumb-init-master/dumb-init.c && \
-    wget -q https://dl.influxdata.com/influxdb/releases/influxdb-${INFLUXDB_VERSION}-static_linux_amd64.tar.gz.asc && \
     wget -q https://dl.influxdata.com/influxdb/releases/influxdb-${INFLUXDB_VERSION}-static_linux_amd64.tar.gz && \
-    gpg --batch --verify influxdb-${INFLUXDB_VERSION}-static_linux_amd64.tar.gz.asc influxdb-${INFLUXDB_VERSION}-static_linux_amd64.tar.gz && \
     mkdir -p /usr/src && mkdir -p /influxdb/etc && \
     tar -C /usr/src -xzf influxdb-${INFLUXDB_VERSION}-static_linux_amd64.tar.gz && \
     rm -f /usr/src/influxdb-*/influxdb.conf && \

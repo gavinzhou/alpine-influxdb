@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/sbin/dumb-init /bin/bash
 
 if [ -n "${PRE_CREATE_DB}" ]; then
   exec influxd -config=/etc/influxdb/influxdb.conf &
@@ -22,4 +22,4 @@ if [ -n "${PRE_CREATE_DB}" ]; then
   kill -9 $_PID
 fi
 
-exec "/sbin/dumb-init" "$@"
+exec "$@"
