@@ -1,7 +1,7 @@
 FROM alpine:3.4
 MAINTAINER gavin zhou <gavin.zhou@gmail.com>
 
-ENV INFLUXDB_VERSION 1.0.0-beta3
+ENV INFLUXDB_VERSION 1.0.0~rc1
 RUN buildDeps="wget gnupg tar ca-certificates make gcc musl-dev" && \
     apk add --no-cache $buildDeps curl bash && \
     update-ca-certificates && \
