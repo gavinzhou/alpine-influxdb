@@ -6,7 +6,6 @@ dir=.
 if [ $# -gt 0 ]; then
   dir=("$@")
 fi
-docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
 
 log_msg() {
   echo "[$(date "+%Y/%m/%d %H:%M:%S %z")] $@"
